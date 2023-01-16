@@ -1,4 +1,4 @@
-##ARTIFSCRIPT PROJECT
+## ARTIFSCRIPT PROJECT
 
 ## Description
 This project is the Python script for interaction with the FJrog Artifactory.
@@ -14,11 +14,11 @@ git branch -M main
 git pull origin main
 ```
 
-##To run the script at the command prompt, enter the following commands:
+## To run the script at the command prompt, enter the following commands:
 ```
 py artifactoryscript.py -a <action> -repo <repository_in_artifactory> 
 ```
-##Options are:
+## Options are:
   -h, --help         show this help message and exit
   -a , --action      Enter the action to execute. (add, delete, list, plist)
   -r , --repo        Enter the repository key in Artifactory.
