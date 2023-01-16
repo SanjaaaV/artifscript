@@ -13,6 +13,10 @@ git remote add origin http://192.168.10.200:8083/svukelic/artifscript.git
 git branch -M main
 git pull origin main
 ```
+## Credentials for Jfrog Artifactory
+```
+In order to use your credentials and server go to configartif.py and change usernameJFrog,passwordJFrog and hostJFrog.
+```
 
 ## To run the script at the command prompt, enter the following commands:
 ```
