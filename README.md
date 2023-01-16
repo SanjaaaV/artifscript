@@ -19,6 +19,7 @@ git pull origin main
 py artifactoryscript.py -a <action> -repo <repository_in_artifactory> 
 ```
 ## Options are:
+```
   -h, --help         show this help message and exit
   -a , --action      Enter the action to execute. (add, delete, list, plist)
   -r , --repo        Enter the repository key in Artifactory.
@@ -29,7 +30,7 @@ py artifactoryscript.py -a <action> -repo <repository_in_artifactory>
     delete - to delete an artifact 
     list- to list all artifacts of repository
     plist- to list artifact of repository in pages (10 artifacts per page)***
-
+```
 
 
 
