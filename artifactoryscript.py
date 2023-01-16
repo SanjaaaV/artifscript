@@ -1,19 +1,36 @@
-import requests
-import json
 import argparse
 from configparser import ConfigParser
 import func
 
 parser = argparse.ArgumentParser(description="JFrog Artifactory")
-parser.add_argument("-a", "--action", metavar="", choices=['add', 'delete', 'list', 'plist'], help = "Enter the action to execute. (add, delete, list, plist)", required = True)
 parser.add_argument(
-    "-r", "--repo", metavar="", help="Enter the repository key in Artifactory.", required = True)
+    "-a",
+    "--action",
+    metavar="",
+    choices=["add", "delete", "list", "plist"],
+    help="Enter the action to execute. (add, delete, list, plist)",
+    required=True,
+)
 parser.add_argument(
-    "-f", "--file_f", metavar="", help="Enter the file name to open.(It is required if you choose to add an artifact.)")
+    "-r",
+    "--repo",
+    metavar="",
+    help="Enter the repository key in Artifactory.",
+    required=True,
+)
 parser.add_argument(
-    "-n", "--file_name", metavar="", help="Enter the file name for Artifactory.(It is required if you choose to add or delete an artifact.)")
+    "-f",
+    "--file_f",
+    metavar="",
+    help="Enter the file name to open.(It is required if you choose to add an artifact.)",
+)
+parser.add_argument(
+    "-n",
+    "--file_name",
+    metavar="",
+    help="Enter the file name for Artifactory.(It is required if you choose to add or delete an artifact.)",
+)
 args = parser.parse_args()
-
 
 config = ConfigParser()
 config.read("parametersjfrog.ini")
@@ -27,7 +44,6 @@ password_jfrog = config_data["passwordjfrog"]
 if __name__ == "__main__":
     action = args.action
     repo = args.repo
-    
        
     if  action == 'add':
         file_name = args.file_name

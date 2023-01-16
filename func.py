@@ -1,7 +1,6 @@
-import requests
 import json
-import argparse
-from configparser import ConfigParser
+import requests
+
 
 def in_pages(listartif):
     page_size = 10
@@ -15,7 +14,9 @@ def in_pages(listartif):
         m +=page_size
 
 def artifact_list(repo,host_jfrog,username_jfrog,password_jfrog):
-    artiflist = requests.get(f'{host_jfrog}/api/storage/{repo}', auth = (username_jfrog, password_jfrog))
+    artiflist = requests.get(
+        f"{host_jfrog}/api/storage/{repo}", auth=(username_jfrog, password_jfrog))
+
     try:
         datastr = artiflist.text
         data = json.loads(datastr)
@@ -41,13 +42,15 @@ def print_artif_list_pages(listartif,repo):
 def print_artif_list(listartif,repo):
     print(f'Artifacts({repo}):')
     for i in listartif:
-            print(i)
+        print(i)
 
 
 def add_artifact(repo,host_jfrog,username_jfrog,password_jfrog, file_name, file_f):
     try:
         files = {'file': open(file_f, 'rb')}
-        artifput = requests.put(f'{host_jfrog}/{repo}/{file_name}', auth = (username_jfrog, password_jfrog), files = files)
+        artifput = requests.put(
+            f'{host_jfrog}/{repo}/{file_name}', auth = (username_jfrog, password_jfrog), files = files)
+
         print(f'\nThe file ({file_f}) is added. {host_jfrog}/{repo}/{file_name}')
         print('.....................')
     except:
@@ -56,7 +59,9 @@ def add_artifact(repo,host_jfrog,username_jfrog,password_jfrog, file_name, file_
 
 def delete_artifact(repo,host_jfrog,username_jfrog,password_jfrog,file_name):
     try:
-        artifdelete = requests.delete(f'{host_jfrog}/{repo}/{file_name}', auth = (username_jfrog, password_jfrog))
+        artifdelete = requests.delete(
+            f'{host_jfrog}/{repo}/{file_name}', auth = (username_jfrog, password_jfrog))
+
         print(f'\nThe file ({file_name}) is deleted.')
         print('.....................')
     except:
